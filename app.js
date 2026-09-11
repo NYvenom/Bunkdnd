@@ -1,3 +1,5 @@
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("ATLASDB_URL:", process.env.ATLASDB_URL ? "exists" : "MISSING");
 if(process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
