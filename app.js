@@ -24,6 +24,7 @@ const { error } = require('console');
 dns.setServers(["1.1.1.1", "0.0.0.0"]);
 
 const dbUrl = process.env.ATLASDB_URL;
+console.log("ATLASDB_URL exists:", !!dbUrl);
 
 main()
 .then(() => {
