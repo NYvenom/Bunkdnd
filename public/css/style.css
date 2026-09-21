@@ -11,7 +11,7 @@ body {
 
 /* Navbar */
 .navbar {
-    height: 5rem;
+    min-height: 5rem;
     background-color: white;
 }
 
@@ -155,5 +155,6 @@ body.dark-mode .footer a {
 /* Map */
 #map { 
     height: 400px;
-    width: 80vh;
+    width: 100%;
+    max-width: 100%;
 }
