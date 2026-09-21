@@ -102,3 +102,22 @@ module.exports.destroyListing = async (req, res) => {
     req.flash("success", "Listing Deleted!");
     res.redirect("/listings");
 };
+
+module.exports.searchListing = async (req, res) => {
+    const { query } = req.query; // from the input's "name" attribute
+    if (!query || query.trim() === "") {
+        req.flash("error", "Please enter something to search!");
+        return res.redirect("/listings");
+    }
+
+    const listing = await Listing.findOne({
+        title: { $regex: query.trim(), $options: "i" }
+    });
+
+    if (!listing) {
+        req.flash("error", "No listing found matching your search.");
+        return res.redirect("/listings");
+    }
+
+    res.redirect(`/listings/${listing._id}`);
+};
