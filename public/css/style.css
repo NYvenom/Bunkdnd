@@ -158,3 +158,29 @@ body.dark-mode .footer a {
     width: 100%;
     max-width: 100%;
 }
+
+/* Icons Pop-up */
+.category-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #222;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.category-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.filter {
+  cursor: pointer;
+}

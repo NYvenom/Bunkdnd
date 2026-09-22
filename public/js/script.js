@@ -39,3 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 });
+
+// Icons Pop-up
+document.addEventListener("DOMContentLoaded", () => {
+  const filters = document.querySelectorAll(".filter");
+  const toast = document.getElementById("categoryToast");
+  let hideTimeout;
+
+  filters.forEach((filter) => {
+    filter.addEventListener("click", () => {
+      const category = filter.dataset.category;
+
+      toast.textContent = `No ${category} stays yet — check back soon.`;
+      toast.classList.add("show");
+
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
+    });
+  });
+});
